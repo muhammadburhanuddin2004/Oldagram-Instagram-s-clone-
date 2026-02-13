@@ -1,6 +1,6 @@
 const posts = [
     {
-        name: "Vincent van Gogh",
+        name: "Vincent van Gogh bor",
         username: "vincey1853",
         location: "Zundert, Netherlands",
         avatar: "images/avatar-vangogh.jpg",
@@ -17,7 +17,7 @@ const posts = [
         comment: "i'm feelin a bit stressed tbh",
         likes: 4
     },
-        {
+    {
         name: "Joseph Ducreux",
         username: "jd1735",
         location: "Paris, France",
@@ -28,3 +28,30 @@ const posts = [
     }
 ]
 
+const container = document.getElementById("post")
+
+function renderPosts(posts) {
+    return posts.map(post => `
+        <section class="post">
+
+            <div class="head">
+                <img class="profile-pic" src="${post.avatar}" alt="vincent">
+                <h3>${post.name}</h3>
+                <p>${post.location}</p>
+            </div>
+
+            <img class="post-image" src="${post.post}" alt="vincent's post">
+
+            <div class="icons">
+                <img class="icon" src="images/icon-heart.png" alt="heart icon image">
+                <img class="icon" src="images/icon-comment.png" alt="comment icon image">
+                <img class="icon" src="images/icon-dm.png" alt="DM icon image">
+            </div>
+
+            <h3>${post.likes} likes</h3>
+            <p><strong>vency1853</strong> ${post.comment}</p>
+        </section>
+   `).join("");
+}
+
+container.innerHTML = renderPosts(posts);
